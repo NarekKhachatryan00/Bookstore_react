@@ -3,20 +3,19 @@ import { useHistory } from 'react-router-dom';
 
 const Checkout = () => {
   const history = useHistory();
-  const [formData, setFormData] = useState({ name: '', address: '', phoneNumber: '' });
+  const [formData, setFormData] = useState({ name: '', address: '', phoneNumber: ''});
 
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-
   const handleOrder = () => {
     const order = {
       name: formData.name,
       address: formData.address,
       phoneNumber: formData.phoneNumber,
-      selectedBooks: JSON.parse(localStorage.getItem('selectedBooks')) || []
+      selectedBooks: JSON.parse(localStorage.getItem('selectedBooks')) || [],
     };
 
     console.log('Order:', order);
